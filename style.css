@@ -176,15 +176,7 @@ section {
     gap: 30px;
     margin-top: 20px;
 }
-.gallery img {
-    width: 220px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 1px;
-    box-shadow: 0 0 24px #00fff7, 0 0 8px #fff inset;
-    border: 2px solid #00fff7;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+
 .gallery img:hover {
     transform: scale(1.08) rotate(-2deg);
     box-shadow: 0 0 32px #00fff7, 0 0 16px #fff inset;
@@ -221,9 +213,10 @@ section {
     padding-bottom: 0px;
     background-image: url(pics/IMG-20251211-WA0007.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 500px;
-    height: 300px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 300px;
+    background-size: cover;
     font-size: large;
     color: rgb(15, 15, 15);
     text-shadow: 0 0 10px #f8faf9;
@@ -232,38 +225,23 @@ section {
 }
 
 @media (max-width: 600px) {
-  body { padding: 10px; }
-  header { height: auto; padding: 18px 12px; background-size: cover; background-position: center; }
-  nav ul { text-align: center; }
-  nav ul li { display: block; margin: 8px 0; }
+    body { padding: 4px; }
+    header { height: auto; padding: 12px 4px; background-size: cover; background-position: center; }
+    nav ul { text-align: center; }
+    nav ul li { display: block; margin: 8px 0; }
     nav ul li a { font-size: 1rem; letter-spacing: 1px; }
-    /* menu-button positioning handled globally so it stays visible on all sizes */
-    /* vertical side nav when open */
-    body.menu-open nav {
-        display: flex;
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: var(--nav-width);
-        background: rgba(37, 37, 90, 0.98);
-        padding: 80px 12px 12px 12px;
-        flex-direction: column;
-        gap: 12px;
-        z-index: 10000;
-        box-shadow: 2px 0 32px rgba(0,0,0,0.5);
-        transform: translateX(0);
-    }
-    body.menu-open nav ul { display: flex; flex-direction: column; gap: 12px; padding: 0; margin: 0; overflow-y: auto; }
-    body.menu-open nav ul li { display: block; margin: 0; }
-    body.menu-open nav ul li a { font-size: 1.1rem; padding: 8px 12px; display: block; border-radius: 6px; }
-    .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 9999; }
-  main { padding: 16px; margin: 16px auto; max-width: 100%; }
-  #sec { flex-direction: column; padding: 0; }
-  .gallery .images { flex-direction: column; gap: 12px; }
-  .gallery img { width: 100%; height: auto; max-width: 360px; }
-  #hos { width: auto; height: auto; padding-left: 0; justify-content: center; }
-  #footer, footer { font-size: 0.95rem; padding: 12px 8px; }
+    #hor { display: none; }
+    .feature { flex-direction: column; align-items: stretch; gap: 8px; }
+    .feature-img, .feature-video { width: 100%; max-width: 320px; margin: 0 auto; }
+    .feature-content { padding: 0; }
+    .freeme { padding: 6px; margin: 10px auto; max-width: 100%; }
+    .headings { padding: 8px 2px; font-size: 1.1em; text-align: center; }
+    main { padding: 8px; margin: 8px auto; max-width: 100%; }
+    #sec { flex-direction: column; padding: 0; }
+    .gallery .images { flex-direction: column; gap: 12px; }
+    .gallery img { width: 100%; height: auto; max-width: 320px; }
+    #hos { width: auto; height: auto; padding-left: 0; justify-content: center; }
+    #footer, footer { font-size: 0.95rem; padding: 8px 4px; }
 }
 
 .freeme{
@@ -297,7 +275,7 @@ section {
 
 .headings{
     font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
-    padding-left: 300px;
+    padding-left: 20px;
     background-color: #f8faf9;
     border: 5px solid blue;
 }
@@ -433,4 +411,40 @@ main#about .glow-cta{
 @media (max-width: 600px){
     main#about{ padding: 20px; }
     main#about h2{ font-size: 1.25rem; }
+}
+
+@media (max-width: 600px) {
+  body.menu-open nav {
+    display: flex;
+  }
+
+  body:not(.menu-open) nav {
+    display: none;
+  }
+}
+
+/* Desktop: allow collapsing nav via .menu-open toggle (click three-dots or outside) */
+@media (min-width: 1025px) {
+    body.menu-open nav {
+        display: block; /* keep original layout; nav uses fixed positioning */
+    }
+
+    body:not(.menu-open) nav {
+        display: none;
+    }
+
+    /* Ensure menu button is visible on desktop */
+    .menu-button {
+        display: inline-flex;
+    }
+}
+
+main,
+section,
+header,
+.gallery,
+#sec,
+.freeme {
+  max-width: 100%;
+  overflow-x: hidden;
 }
