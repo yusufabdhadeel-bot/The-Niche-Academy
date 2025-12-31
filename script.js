@@ -1,71 +1,54 @@
-const links = document.querySelectorAll("nav ul li a");
+// Highlight active nav links
 const currentPage = window.location.pathname.split("/").pop();
 
-links.forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-        link.classList.add("active");
-    }
+document.querySelectorAll("a").forEach(a => {
+  if (a.getAttribute("href") === currentPage) {
+    a.classList.add("active");
+  }
 });
 
-const link = document.querySelectorAll("div ul li a");
-const currentPag = window.location.pathname.split("/").pop();
+// Desktop-only nav collapse behavior and general menu handling
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu-button");
+  const nav = document.querySelector("nav");
 
-link.forEach(link => {
-    if (link.getAttribute("href") === currentPag) {
-        link.classList.add("active");
-    }
-});
+  // Ensure menu starts closed
+  document.body.classList.remove("menu-open");
 
-// Collapse/expand behavior for the right-side nav
-const menuToggle = document.querySelector('.menu-button');
-const nav = document.querySelector('nav');
+  function isDesktop() {
+    return window.matchMedia('(min-width: 1025px)').matches;
+  }
 
-function collapseNav() {
-    document.body.classList.add('nav-collapsed');
-    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-    if (nav) nav.setAttribute('aria-hidden', 'true');
-}
-
-function expandNav() {
-    document.body.classList.remove('nav-collapsed');
-    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
-    if (nav) nav.setAttribute('aria-hidden', 'false');
-}
-
-// Start with nav collapsed (don't open automatically)
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('nav-collapsed');
-    if (nav) nav.setAttribute('aria-hidden', 'true');
-    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-});
-
-if (menuToggle) {
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (document.body.classList.contains('nav-collapsed')) expandNav();
-        else collapseNav();
+  // Toggle menu when three-dot button is clicked (both mobile and desktop)
+  if (menuButton) {
+    menuButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      document.body.classList.toggle("menu-open");
     });
-}
+  }
 
-// Close on Escape (collapse the nav)
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !document.body.classList.contains('nav-collapsed')) {
-        collapseNav();
-    }
-});
+  // Collapse nav when clicking outside — desktop only
+  document.addEventListener("click", (e) => {
+    if (!isDesktop()) return;
+    if (!document.body.classList.contains("menu-open")) return;
+    if (nav && nav.contains(e.target)) return;
+    if (menuButton && menuButton.contains(e.target)) return;
+    document.body.classList.remove("menu-open");
+  });
 
-// Collapse when clicking outside the nav
-document.addEventListener('click', (e) => {
-    if (document.body.classList.contains('nav-collapsed')) return; // already collapsed
-    const target = e.target;
-    if (nav && nav.contains(target)) return; // click inside nav
-    if (menuToggle && menuToggle.contains(target)) return; // click on toggle
-    collapseNav();
-});
-
-// Collapse after following a nav link (optional UX)
-document.querySelectorAll('nav a').forEach(a => {
-    a.addEventListener('click', () => {
-        collapseNav();
+  // Close after clicking a link (keeps mobile behavior intact)
+  document.querySelectorAll("nav a").forEach(a => {
+    a.addEventListener("click", () => {
+      document.body.classList.remove("menu-open");
     });
+  });
+
+  // Close on Escape key (desktop only)
+  document.addEventListener("keydown", (e) => {
+    if (isDesktop() && e.key === "Escape") {
+      document.body.classList.remove("menu-open");
+    }
+  });
 });
+
+// (Duplicate desktop handlers removed — handled inside DOMContentLoaded above)

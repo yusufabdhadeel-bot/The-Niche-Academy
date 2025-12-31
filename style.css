@@ -1,6 +1,342 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+.futuristic-header {
+    position: relative;
+    background: linear-gradient(120deg, #0a1a3c 60%, #0e3a6d 100%);
+    color: #eaf6ff;
+    text-align: center;
+    padding: 56px 0 32px 0;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+    box-shadow: 0 8px 40px 0 #0ff2ff44, 0 0 0 2px #00fff7;
+    overflow: hidden;
+}
+.futuristic-header .header-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, #00fff7 0%, transparent 60%);
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: 0;
+}
+.futuristic-title {
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-size: 2.8em;
+    letter-spacing: 2.5px;
+    color: #00fff7;
+    text-shadow: 0 0 18px #00fff7, 0 0 2px #fff, 0 2px 8px #0e3a6d;
+    margin-bottom: 0.2em;
+    z-index: 1;
+    position: relative;
+}
+.futuristic-tagline, .hero-tagline {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-size: 1.3em;
+    color: #b3e6ff;
+    text-shadow: 0 0 8px #00fff7;
+    margin-bottom: 1.2em;
+    z-index: 1;
+    position: relative;
+}
+.futuristic-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 0 auto;
+    z-index: 1;
+    position: relative;
+}
+.futuristic-nav ul li a {
+    color: #eaf6ff;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.futuristic-nav ul li a.active, .futuristic-nav ul li a:hover {
+    background: linear-gradient(90deg, #00fff7 40%, #7c5cff 100%);
+    color: #0a1a3c;
+    box-shadow: 0 0 12px #00fff7, 0 0 2px #fff;
+}
+.futuristic-main {
+    background: linear-gradient(120deg, #0a1a3c 60%, #0e3a6d 100%);
+    box-shadow: 0 8px 40px 0 #0ff2ff44, 0 0 0 2px #00fff7;
+    border-radius: 24px;
+    padding: 48px 32px;
+    margin-top: -40px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+.futuristic-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.futuristic-logo, .logo-glow {
+    width: 120px;
+    border-radius: 18px;
+    box-shadow: 0 0 32px #00fff7, 0 0 8px #fff inset;
+    margin-bottom: 18px;
+}
+.futuristic-slogan {
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-size: 2em;
+    color: #00fff7;
+    text-shadow: 0 0 12px #00fff7, 0 0 2px #fff;
+    margin-bottom: 0.5em;
+}
+.futuristic-desc {
+    color: #b3e6ff;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 8px #00fff733;
+}
+.futuristic-features-title {
+    text-align: center;
+    font-size: 2em;
+    color: #00fff7;
+    text-shadow: 0 0 18px #00fff7, 0 0 2px #fff;
+    margin: 40px 0 32px 0;
+    letter-spacing: 2px;
+}
+.futuristic-feature {
+    background: rgba(0, 255, 247, 0.06);
+    border-left: 4px solid #00fff7;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #00fff722;
+    margin-bottom: 32px;
+    padding: 24px 18px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.futuristic-feature:hover {
+    box-shadow: 0 8px 40px #00fff755, 0 0 12px #7c5cff33;
+    border-left: 4px solid #7c5cff;
+}
+.futuristic-img {
+    box-shadow: 0 0 24px #00fff7, 0 0 8px #fff inset;
+    border: 2px solid #00fff7;
+    border-radius: 12px;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+}
+.futuristic-feature-content {
+    flex: 1 1 220px;
+    min-width: 0;
+    color: #eaf6ff;
+}
+.futuristic-more {
+    text-align: center;
+    font-size: 1.3em;
+    color: #00fff7;
+    letter-spacing: 2px;
+    margin: 32px 0 0 0;
+    text-shadow: 0 0 18px #00fff7, 0 0 2px #fff;
+}
+.futuristic-footer {
+    background: linear-gradient(90deg, #0a1a3c 60%, #0e3a6d 100%);
+    color: #00fff7;
+    text-align: center;
+    padding: 18px 0;
+    width: 100%;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    border-top: 2px solid #00fff7;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0 -4px 24px #00fff722;
+    margin-top: 32px;
+}
+.blue-glow {
+    color: #00fff7;
+    text-shadow: 0 0 18px #00fff7, 0 0 2px #fff;
+}
+@media (max-width: 800px) {
+    .futuristic-main { padding: 18px 2vw; }
+    .futuristic-feature { flex-direction: column; gap: 12px; }
+    .futuristic-img { width: 100%; max-width: 320px; margin: 0 auto; }
+}
+@media (max-width: 600px) {
+    .futuristic-header { padding: 24px 0 12px 0; border-radius: 0 0 18px 18px; }
+    .futuristic-title { font-size: 1.5em; }
+    .futuristic-slogan { font-size: 1.1em; }
+    .futuristic-main { padding: 8px 2vw; border-radius: 10px; }
+    .futuristic-feature { padding: 10px 4px; }
+    .futuristic-logo { width: 80px; }
+}
+
+/* --- Futuristic Blue Theme Enhancements --- */
+.futuristic-header {
+    position: relative;
+    background: linear-gradient(120deg, #0a1a3c 60%, #0e3a6d 100%);
+    box-shadow: 0 0 60px 0 #00fff7, 0 0 24px #7c5cff inset;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    overflow: hidden;
+    min-height: 340px;
+    z-index: 1;
+}
+.hero-glow {
+    position: absolute;
+    top: -80px; left: 50%;
+    width: 600px; height: 320px;
+    background: radial-gradient(circle at 50% 40%, #00fff7 0%, #0e3a6d 60%, transparent 100%);
+    filter: blur(60px) brightness(1.2);
+    opacity: 0.7;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: none;
+    animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+@keyframes pulseGlow {
+    0% { opacity: 0.7; filter: blur(60px) brightness(1.2); }
+    100% { opacity: 1; filter: blur(80px) brightness(1.4); }
+}
+.futuristic-title {
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-size: 2.8em;
+    color: #eaf6ff;
+    letter-spacing: 2.5px;
+    margin-top: 60px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 0 18px #00fff7, 0 0 8px #7c5cff;
+    z-index: 2;
+    position: relative;
+}
+.blue-glow {
+    color: #00fff7;
+    text-shadow: 0 0 18px #00fff7, 0 0 8px #7c5cff, 0 0 2px #fff;
+}
+.hero-tagline {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-size: 1.3em;
+    color: #b3e6ff;
+    margin-bottom: 30px;
+    z-index: 2;
+    position: relative;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 8px #00fff7;
+}
+.futuristic-main {
+    background: linear-gradient(120deg, rgba(6,8,40,0.98), rgba(4,10,60,0.92));
+    box-shadow: 0 0 60px 0 #00fff7, 0 0 24px #7c5cff inset;
+    border-radius: 24px;
+    border: 2px solid #00fff7;
+}
+.futuristic-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.logo-glow {
+    box-shadow: 0 0 32px #00fff7, 0 0 12px #7c5cff inset;
+    border: 3px solid #00fff7;
+    background: rgba(0,255,247,0.04);
+    border-radius: 18px;
+    margin-bottom: 18px;
+    max-width: 180px;
+}
+.futuristic-slogan {
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-size: 2em;
+    color: #eaf6ff;
+    margin-bottom: 0.2em;
+    text-shadow: 0 0 12px #00fff7, 0 0 4px #7c5cff;
+}
+.futuristic-desc {
+    color: #b3e6ff;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 6px #00fff7;
+}
+.futuristic-features-title {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 18px #00fff7, 0 0 8px #7c5cff;
+}
+/* Consistent main container for all pages */
+.about-style {
+        --fut-bg-1: rgba(6,8,20,0.9);
+        --fut-bg-2: rgba(4,10,30,0.7);
+        --neon: #00fff7;
+        --accent: #7c5cff;
+        --muted: rgba(200,255,255,0.08);
+        background: linear-gradient(120deg, var(--fut-bg-1), var(--fut-bg-2));
+        padding: 48px;
+        border-radius: 18px;
+        color: #dffafe;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(3,10,30,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+        max-width: 900px;
+        margin: 40px auto;
+}
+
+.about-style::before {
+        content: "";
+        position: absolute;
+        inset: -30% -30%;
+        background: conic-gradient(from 120deg at 50% 50%, rgba(124,92,255,0.06), rgba(0,255,247,0.04), rgba(124,92,255,0.06));
+        transform: rotate(18deg);
+        filter: blur(40px);
+        opacity: 0.9;
+        pointer-events: none;
+        animation: drift 12s linear infinite;
+}
+
+@media (max-width: 600px) {
+    .about-style {
+        padding: 12px 4px;
+        border-radius: 10px;
+        margin: 8px auto;
+        max-width: 100%;
+    }
+}
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+.feature-img, .feature-video {
+    width: 180px;
+    max-width: 100%;
+    border-radius: 5%;
+    padding: 5px;
+    display: block;
+    height: auto;
+}
+.feature-video {
+    min-width: 120px;
+    max-width: 320px;
+}
+.feature-content {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+:root {
+  --nav-width: 200px;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 body {
     font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -8,7 +344,8 @@ body {
     background-color: #9c9c9c;
     color: #8bddfd;
     min-height: 100vh;
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
 #sec{
@@ -23,19 +360,20 @@ body {
 
 #hos {
     width: 180px;
-    border-radius: 0%;
     height: 180px;
     display: flex;
-    justify-content: end;
-    padding-left: 170px;
+    justify-content: center;
+    padding-left: 0;
 }
+
 
 header {
     background-image: linear-gradient(rgba(252, 252, 252, 0.499), rgba(252, 252, 252, 0.499)), url(pics/IMG-20251211-WA0004.jpg);
     height: 280px;
     position: relative;
     background-repeat: no-repeat;
-    background-size: 100% 115%;
+    background-size: cover;
+    background-position: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     color: #031d74;
@@ -63,17 +401,23 @@ header {
 }
 
 /* Make gallery images responsive */
-.gallery img { 
-    width: 100%; 
-    height: auto; 
-    max-width: 360px; 
+.gallery img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1px;
+    box-shadow: 0 0 24px #00fff7, 0 0 8px #fff inset;
+    border: 2px solid #00fff7;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .gallery .images { 
+    display: flex;
     flex-direction: column; 
     gap: 12px; 
+    max-width: 100%;
 }
-
 
 #hor ul {
     list-style: none;
@@ -107,11 +451,11 @@ header {
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     height: 310px;
-    width: 200px;
+    width: var(--nav-width);
     background: rgba(20,20,40,0.95);
     padding: 20px 12px 12px 12px;
     box-shadow: -4px 0 24px rgba(0,0,0,0.4);
@@ -139,17 +483,7 @@ nav ul li a.active {
     color: #35d0f7;
 }
 
-/* When the nav is collapsed we remove it from the page flow entirely */
-body.nav-collapsed nav {
-    display: none;
-    visibility: hidden;
-    pointer-events: none;
-}
 
-/* When collapsed remove the right padding on main so content uses full width */
-body.nav-collapsed main {
-    padding-right: 20px;
-}
 
 main {
     padding: 40px;
